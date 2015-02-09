@@ -41,7 +41,8 @@ public class Server {
 
 		try {
 			ArrayList<String> commands = new ArrayList<String>();
-			commands.add(exec);
+
+			commands.add(System.getenv("PHANTOMJS_LOC") + "/" + exec);
 			commands.add(script);
 			commands.add("-host");
 			commands.add(host);
