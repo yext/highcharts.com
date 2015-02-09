@@ -63,6 +63,13 @@ public class ExportController extends HttpServlet {
 		return "demo";
 	}
 
+        @RequestMapping(value = "/healthy", method = RequestMethod.GET)
+	public HttpEntity<byte[]> healthy() throws IOException {
+	    HttpHeaders headers = new HttpHeaders();
+	    headers.add("Content-Type", "text/html; charset=UTF-8");
+	    return new HttpEntity<byte[]>("ok".getBytes(), headers);
+	}
+
 	@RequestMapping(method = {RequestMethod.POST, RequestMethod.GET})
 	public HttpEntity<byte[]> exporter(
 		@RequestParam(value = "svg", required = false) String svg,
